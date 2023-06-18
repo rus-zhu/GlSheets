@@ -24,7 +24,12 @@
     </table>
     <script>
         $(document).ready(function() {
-            $('td[contenteditable="true"]').on('blur', function() {
+            $('td[contenteditable="true"]').on('keydown blur', function(event) {
+                if (event.type === 'keydown' && event.key !== 'Enter') {
+                    return;
+                }
+                event.preventDefault();
+
                 var cellValue = $(this).text();
                 var cellId = $(this).attr('id');
                 var cellColumn = $(this).attr('column');
@@ -34,13 +39,13 @@
                     column: cellColumn,
                     row: cellRow,
                     value: cellValue
-                }
+                };
                 sendDataToServer(cell);
             });
 
             function sendDataToServer(cell) {
                 $.ajax({
-                    url: 'http://localhost:8080/calculate',
+                    url: 'http://localhost:9090/calculate',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(cell),
