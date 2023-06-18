@@ -1,9 +1,9 @@
-package ru.ruszhu.googlesheets.service.Impl;
+package ru.ruszhu.glsheets.service.Impl;
 
 import org.springframework.stereotype.Service;
-import ru.ruszhu.googlesheets.model.Cell;
-import ru.ruszhu.googlesheets.service.CellService;
-import ru.ruszhu.googlesheets.utils.Calculator;
+import ru.ruszhu.glsheets.model.Cell;
+import ru.ruszhu.glsheets.service.CellService;
+import ru.ruszhu.glsheets.utils.Calculator;
 
 @Service
 public class CellServiceImpl implements CellService {

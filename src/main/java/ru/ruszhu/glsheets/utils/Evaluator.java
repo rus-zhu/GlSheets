@@ -1,4 +1,4 @@
-package ru.ruszhu.googlesheets.utils;
+package ru.ruszhu.glsheets.utils;
 
 import java.util.HashMap;
 import java.util.Map;

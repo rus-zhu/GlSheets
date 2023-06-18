@@ -1,10 +1,10 @@
-package ru.ruszhu.googlesheets;
+package ru.ruszhu.glsheets;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GoogleSheetsApplicationTests {
+class GlSheetsApplicationTests {
 
     @Test
     void contextLoads() {

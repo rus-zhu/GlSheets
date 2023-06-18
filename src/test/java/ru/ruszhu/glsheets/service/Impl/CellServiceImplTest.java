@@ -1,7 +1,7 @@
-package ru.ruszhu.googlesheets.service.Impl;
+package ru.ruszhu.glsheets.service.Impl;
 
 import org.junit.jupiter.api.Test;
-import ru.ruszhu.googlesheets.model.Cell;
+import ru.ruszhu.glsheets.model.Cell;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

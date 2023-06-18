@@ -1,6 +1,6 @@
-package ru.ruszhu.googlesheets.service;
+package ru.ruszhu.glsheets.service;
 
-import ru.ruszhu.googlesheets.model.Cell;
+import ru.ruszhu.glsheets.model.Cell;
 
 public interface CellService {
     Cell updateCell(Cell cell);

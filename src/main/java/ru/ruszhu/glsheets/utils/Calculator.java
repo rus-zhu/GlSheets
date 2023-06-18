@@ -1,8 +1,8 @@
-package ru.ruszhu.googlesheets.utils;
+package ru.ruszhu.glsheets.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ruszhu.googlesheets.model.Cell;
+import ru.ruszhu.glsheets.model.Cell;
 
 import java.util.Arrays;
 import java.util.Stack;

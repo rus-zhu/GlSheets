@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.ruszhu</groupId>
-    <artifactId>GoogleSheets</artifactId>
+    <artifactId>GlSheets</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>GlSheets</name>
     <description>GlSheets</description>

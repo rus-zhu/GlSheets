@@ -1,13 +1,13 @@
-package ru.ruszhu.googlesheets;
+package ru.ruszhu.glsheets;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GoogleSheetsApplication {
+public class GlSheetsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GoogleSheetsApplication.class, args);
+        SpringApplication.run(GlSheetsApplication.class, args);
     }
 
 }

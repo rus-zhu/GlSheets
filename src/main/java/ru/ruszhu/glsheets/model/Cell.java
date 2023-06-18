@@ -1,4 +1,4 @@
-package ru.ruszhu.googlesheets.model;
+package ru.ruszhu.glsheets.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
