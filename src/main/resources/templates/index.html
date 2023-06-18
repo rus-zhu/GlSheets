@@ -1,0 +1,72 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+        </tr>
+        <tr th:each="row, rowNumber : ${cells}">
+            <td th:text="${rowNumber.count}"></td>
+            <td contenteditable="true" th:text="${row[0].value}" th:id="${row[0].id}" th:column="${row[0].column}"></td>
+            <td contenteditable="true" th:text="${row[1].value}" th:id="${row[1].id}" th:column="${row[1].column}"></td>
+            <td contenteditable="true" th:text="${row[2].value}" th:id="${row[2].id}" th:column="${row[2].column}"></td>
+            <td contenteditable="true" th:text="${row[3].value}" th:id="${row[3].id}" th:column="${row[3].column}"></td>
+        </tr>
+    </table>
+    <script>
+        $(document).ready(function() {
+            $('td[contenteditable="true"]').on('blur', function() {
+                var cellValue = $(this).text();
+                var cellId = $(this).attr('id');
+                var cellColumn = $(this).attr('column');
+                var cellRow = $(this).closest('tr').index();
+                var cell = {
+                    id: cellId,
+                    column: cellColumn,
+                    row: cellRow,
+                    value: cellValue
+                }
+                sendDataToServer(cell);
+            });
+
+            function sendDataToServer(cell) {
+                $.ajax({
+                    url: 'http://localhost:8080/calculate',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(cell),
+                    success: function(response) {
+                        var updatedId = response.id;
+                        var updatedColumn = response.column;
+                        var updatedRow = response.row;
+                        var updatedValue = response.value;
+                        var updatedCell = {
+                            id: updatedId,
+                            column: updatedColumn,
+                            row: updatedRow,
+                            value: updatedValue
+                        }
+                        updateCellContent(updatedCell);
+                    },
+                    error: function(xhr, status, error) {
+                        // Обработка ошибки (при необходимости)
+                        console.error('Ошибка при отправке данных на сервер:', error);
+                    }
+                });
+            }
+            function updateCellContent(cell) {
+                $('#' + cell.id).text(cell.value)
+            }
+        });
+    </script>
+</body>
+</html>
